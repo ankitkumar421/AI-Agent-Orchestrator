@@ -1,5 +1,7 @@
 # 🤖 Autonomous AI Data Analyst Orchestrator
 
+
+
 > **Bridging Structured Sales Data and Real-time Market Intelligence**
 
 [![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
@@ -162,6 +164,10 @@ The dashboard will open at `http://localhost:8501`
 ---
 
 ## 💡 Usage
+
+
+https://github.com/user-attachments/assets/1cb06df5-eeee-432f-ba2a-e1768a0497ad
+
 
 ### 1. **Ask a Business Question**
 
