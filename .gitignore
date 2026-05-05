@@ -1,5 +1,7 @@
-ai_env/
 __pycache__/
-*.db
 .env
-.vscode/
+sales.db
+storage/
+data/
+ai_env/
+.streamlit/config.toml

@@ -1,0 +1,20 @@
+services:
+  ai-agent-app:
+    build: .
+    ports:
+      - "8501:8501"
+    environment:
+      # Use the service name defined below
+      - OLLAMA_HOST=http://ollama-service:11434
+    depends_on:
+      - ollama-service
+
+  ollama-service:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
+volumes:
+  ollama_data:

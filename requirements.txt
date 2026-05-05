@@ -1,0 +1,14 @@
+streamlit
+langchain-community
+langchain-core
+langchain-ollama
+langchain-openai
+pydantic>=2.9.0
+llama-index
+llama-index-llms-ollama
+llama-index-embeddings-huggingface
+duckduckgo-search
+ddgs
+torch --index-url https://download.pytorch.org/whl/cpu
+torchvision --index-url https://download.pytorch.org/whl/cpu
+lxml
