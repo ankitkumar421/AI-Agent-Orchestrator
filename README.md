@@ -1,206 +1,162 @@
 # 🤖 Autonomous AI Data Analyst Orchestrator
 
+> **Bridging Structured Sales Data & Real-time Market Intelligence**  
 
+A production-grade agentic RAG system designed to automate complex business intelligence tasks through intelligent orchestration of SQL databases, retrieval-augmented generation, and live market data.
 
-> **Bridging Structured Sales Data and Real-time Market Intelligence**
+## 📊 Status & Badges
 
-[![Python](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)](https://www.python.org/)
-[![LangChain](https://img.shields.io/badge/Framework-LangChain-green?style=for-the-badge&logo=langchain)](https://www.langchain.com/)
-[![Ollama](https://img.shields.io/badge/Inference-Local%20Ollama-orange?style=for-the-badge&logo=docker)](https://ollama.ai/)
-[![SQLite](https://img.shields.io/badge/Database-SQLite-lightblue?style=for-the-badge&logo=sqlite)](https://www.sqlite.org/)
-[![Streamlit](https://img.shields.io/badge/UI-Streamlit-red?style=for-the-badge&logo=streamlit)](https://streamlit.io/)
-[![License](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
-[![Status](https://img.shields.io/badge/Status-Active%20Development-blue?style=for-the-badge)](https://github.com/ankitkumar421/AI-Agent-Orchestrator)
+[![Python](https://img.shields.io/badge/Python-3.12%2B-3776ab?style=flat-square&logo=python&logoColor=white)](https://www.python.org/)
+[![LangChain](https://img.shields.io/badge/LangChain-Framework-00d084?style=flat-square&logo=langchain&logoColor=white)](https://www.langchain.com/)
+[![Llama3](https://img.shields.io/badge/Llama3-8B%20Model-FF6B00?style=flat-square&logo=meta&logoColor=white)](https://llama.meta.com/)
+[![Docker](https://img.shields.io/badge/Docker-Containerized-2496ED?style=flat-square&logo=docker&logoColor=white)](https://www.docker.com/)
+[![SQLite](https://img.shields.io/badge/SQLite-Lightweight%20DB-003B57?style=flat-square&logo=sqlite&logoColor=white)](https://www.sqlite.org/)
+[![Streamlit](https://img.shields.io/badge/Streamlit-UI-FF4B4B?style=flat-square&logo=streamlit&logoColor=white)](https://streamlit.io/)
+[![License](https://img.shields.io/badge/License-MIT-green?style=flat-square)](LICENSE)
+[![Status](https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square)](https://github.com/ankitkumar421/AI-Agent-Orchestrator)
 
 ---
 
-## 📋 Table of Contents
+## 📑 Quick Navigation
 
-- [Overview](#-project-overview)
-- [Key Features](#-key-features)
-- [Architecture](#-system-architecture)
-- [Installation](#-installation--setup)
-- [Usage](#-usage)
-- [Project Structure](#-project-structure)
-- [Roadmap](#-roadmap--evolution)
-- [Contributing](#-contributing)
-- [License](#-license)
+- [✨ Features](#-key-features)
+- [🏗️ Architecture](#-system-architecture)  
+- [🚀 Getting Started](#-quick-start)
+- [💡 Real-World Examples](#-real-world-use-case)
+- [📁 Project Structure](#-project-structure)
+- [🛣️ Roadmap](#-roadmap--evolution)
+- [🤝 Contributing](#-contributing)
 
 ---
 
 ## 🎯 Project Overview
 
-This project features an advanced **Multi-Agent Orchestrator** designed for modern business intelligence. It goes beyond simple chatbots—it **reasons**, **decomposes** complex queries, and **synthesizes** insights from both internal databases and real-time market data.
+This is an **enterprise-grade Multi-Agent Orchestrator** built for the modern data strategist. Unlike simple LLM chatbots, this system:
 
-### 🚀 Key Capabilities
+- 🧠 **Reasons** over your unique business context
+- 🔄 **Decomposes** complex queries into actionable data tasks
+- 🔗 **Synthesizes** insights from multiple data sources
+- ✅ **Verifies** decisions through human-in-the-loop gates
+- 📊 **Reports** in professional, formatted outputs
 
-- **🧠 Intelligent Task Decomposition**: Breaks down complex business questions into precise SQL queries and market research tasks
-- **🛡️ Self-Healing SQL**: Reflection loop that identifies syntax errors and auto-corrects queries before execution
-- **🤝 Human-in-the-Loop (HITL)**: Dedicated security gate for manual SQL query verification before execution
-- **🌍 Real-time Market Context**: Live search integration (DuckDuckGo API) for market trends and business intelligence
-- **📊 Executive Reporting**: Automatic formatting into professional tables with INR (₹) currency formatting
-- **🔍 Multi-Source Intelligence**: Seamlessly combines internal sales data with external market insights
+### Perfect For:
+- 📈 Data strategists analyzing regional performance
+- 🏢 Business analysts bridging SQL and market trends
+- 🛍️ Retail managers making competitive pricing decisions
+- 📊 Executive teams requiring data-driven synthesis
+
+---
+
+## ✨ Key Features
+
+| Feature | Description | Benefit |
+|---------|-------------|---------|
+| 🧠 **Smart Decomposition** | Breaks complex questions into SQL + search tasks | Faster, more accurate answers |
+| 🛡️ **Self-Healing SQL** | Auto-detects & corrects query syntax errors | Fewer failed queries |
+| 🤝 **Human-in-the-Loop** | Manual approval gate before data operations | Enterprise security |
+| 🌍 **Real-Time Market Data** | Live DuckDuckGo integration | Always current intelligence |
+| 💰 **INR Currency Formatting** | Automatic ₹ formatting for reports | Professional Indian market reporting |
+| 📊 **Executive Reports** | Markdown tables with trend analysis | Boardroom-ready insights |
+| 🔍 **Multi-Source Intelligence** | Merges internal sales + external trends | Complete business picture |
+| 🐳 **Fully Dockerized** | Complete containerized stack | Deploy anywhere, no setup hassles |
 
 ---
 
 ## 🏗️ System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────────┐
-│                     USER QUESTION                                │
-└────────────────────────┬────────────────────────────────────────┘
-                         │
-        ┌────────────────▼──────────────────┐
-        │   MASTER ORCHESTRATOR (Llama 3)   │
-        │   • Task Decomposition            │
-        │   • Response Synthesis            │
-        └────────────┬───────────┬──────────┘
-                     │           │
-         ┌───────────▼──┐    ┌───▼───────────┐
-         │  SQL AGENT   │    │ SEARCH AGENT  │
-         └───────┬──────┘    └───┬───────────┘
-                 │               │
-        ┌────────▼────────┐  ┌───▼──────────────┐
-        │  SQLite (sales) │  │ DuckDuckGo API   │
-        │  • daily_sales  │  │ • Market Trends  │
-        │  • price data   │  │ • News & Context │
-        └─────────────────┘  └──────────────────┘
-                 │               │
-        ┌────────▼───────────────▼────────┐
-        │   DATA SYNTHESIS & FORMATTING   │
-        │   (Executive Report with INR)   │
-        └───────────────┬──────────────────┘
-                        │
-        ┌───────────────▼──────────────────┐
-        │  STREAMLIT DASHBOARD (Frontend)  │
-        │  • Interactive UI                │
-        │  • Real-time Visualization       │
-        └────────────────────────────────────┘
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃                    🌐 USER QUESTION                          ┃
+┃               (Natural Language Query)                        ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━┬━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
+                       │
+       ┏━━━━━━━━━━━━━━━▼━━━━━━━━━━━━━━━┓
+       ┃  🤖 MASTER ORCHESTRATOR       ┃
+       ┃    (Llama 3 8B Reasoning)     ┃
+       ┃  • Query Decomposition        ┃
+       ┃  • Task Planning              ┃
+       ┃  • Response Synthesis         ┃
+       ┗━━━━━━┬──────────────────┬─────┛
+              │                  │
+     ┌────────▼────────┐  ┌──────▼──────────┐
+     ┃  📊 SQL AGENT   ┃  ┃  🔍 SEARCH AGENT┃
+     └────────┬────────┘  └──────┬──────────┘
+              │                  │
+     ┌────────▼───────────┐  ┌───▼───────────┐
+     ┃  💾 SQLite DB      ┃  ┃ 🌐 DuckDuckGo ┃
+     ┃  • sales.db        ┃  ┃  • Live Data  ┃
+     ┃  • Price Index     ┃  ┃  • Trends     ┃
+     ┃  • Regional Data   ┃  ┃  • Market News┃
+     ┗────────┬───────────┘  ┗───┬───────────┘
+              │                  │
+       ┌──────▼──────────────────▼────────┐
+       ┃  📈 SYNTHESIS & FORMATTING       ┃
+       ┃  • Data Merging                  ┃
+       ┃  • Trend Analysis                ┃
+       ┃  • Report Generation             ┃
+       ┗──────┬──────────────────────────┘
+              │
+       ┌──────▼──────────────────────────┐
+       ┃  ✅ HUMAN REVIEW GATE (HITL)    ┃
+       ┃  • SQL Verification             ┃
+       ┃  • Approval/Rejection           ┃
+       ┗──────┬──────────────────────────┘
+              │
+       ┌──────▼──────────────────────────┐
+       ┃  📊 STREAMLIT DASHBOARD         ┃
+       ┃  • Interactive UI               ┃
+       ┃  • Real-time Results            ┃
+       ┃  • Data Exploration             ┃
+       ┗──────────────────────────────────┘
 ```
+
+### 🔧 Technology Stack
 
 | Component | Technology | Purpose |
 |-----------|-----------|---------|
-| **Reasoning Engine** | Llama 3 (8B) via Ollama | Query decomposition, synthesis, and reasoning |
-| **Orchestration** | LangChain (LCEL) | Agent flow management and tool coordination |
-| **Data Storage** | SQLite | Lightweight, local sales data repository |
-| **Search Integration** | DuckDuckGo API | Real-time market intelligence & trends |
-| **User Interface** | Streamlit | Interactive, reactive dashboard for end-users |
-| **Task Queue** | Native Python | Async task execution and error handling |
+| **🧠 Reasoning** | Llama 3 (8B) via Ollama | Complex query decomposition & synthesis |
+| **🎯 Orchestration** | LangChain (LCEL) | Seamless agent flow management |
+| **💾 Data Storage** | SQLite | Fast, local sales database |
+| **🔍 Search** | DuckDuckGo API | Privacy-respecting market intelligence |
+| **🎨 Interface** | Streamlit | Reactive, interactive dashboard |
+| **🐳 Containerization** | Docker Compose | Multi-container orchestration |
+| **📦 Python** | 3.12-slim | Modern, stable runtime |
 
 ---
 
-## 🛠️ Installation & Setup
+## 🚀 Quick Start
 
 ### Prerequisites
+- 🐳 Docker Desktop (latest)
+- 📝 Git
+- 💾 2GB free disk space
 
-- **Python 3.10+**
-- **Ollama** (for local Llama 3 inference) - [Download here](https://ollama.ai/)
-- **SQLite** (usually pre-installed)
-- **pip** (Python package manager)
-
-### Step 1: Clone the Repository
+### Installation
 
 ```bash
+# 1️⃣ Clone Repository
 git clone https://github.com/ankitkumar421/AI-Agent-Orchestrator.git
 cd AI-Agent-Orchestrator
+
+# 2️⃣ Launch Everything with Docker Compose
+docker-compose up --build
+
+# 3️⃣ Pull Llama 3 Model (in another terminal)
+docker exec -it ai_agent_project-ollama-service-1 ollama run llama3
+
+# 4️⃣ Open Dashboard
+# Navigate to: http://localhost:8501
 ```
 
-### Step 2: Set Up Python Virtual Environment
-
-```bash
-# Create virtual environment
-python -m venv ai_env
-
-# Activate it
-# On Windows:
-ai_env\Scripts\activate
-
-# On macOS/Linux:
-source ai_env/bin/activate
-```
-
-### Step 3: Install Dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-**Key dependencies:**
-- `langchain`
-- `langchain-ollama`
-- `langchain-community`
-- `streamlit`
-- `duckduckgo-search`
-- `sqlite3`
-
-### Step 4: Initialize the Database
-
-```bash
-python create_database.py
-```
-
-This creates the `sales.db` SQLite database with sample sales records.
-
-### Step 5: Start Ollama (Local LLM Server)
-
-```bash
-ollama serve
-```
-
-In another terminal, pull the Llama 3 model:
-
-```bash
-ollama pull llama3
-```
-
-### Step 6: Launch the Streamlit Dashboard
-
-```bash
-streamlit run app.py
-```
-
-The dashboard will open at `http://localhost:8501`
+That's it! The entire stack is now running.
 
 ---
 
-## 💡 Usage
+## 💡 Real-World Use Case
 
+Compare our Hinjewadi Classic Burger revenue against 2026 growth targets. Are we priced competitively vs. the Pune market?
 
-https://github.com/user-attachments/assets/1cb06df5-eeee-432f-ba2a-e1768a0497ad
-
-
-### 1. **Ask a Business Question**
-
-Enter a natural language query like:
-- _"Compare our Pune revenue to national burger price trends"_
-- _"What products are trending in Hinjewadi?"_
-- _"How does our Soft Drinks sales correlate with weather patterns?"_
-
-### 2. **Agent Decomposition**
-
-The Master Agent automatically breaks down your question into:
-- **SQL Task**: Query internal sales database
-- **Search Task**: Fetch real-time market data
-
-### 3. **Human Approval (HITL)**
-
-Before execution, proposed SQL queries are presented for verification:
-```
-[AGENT PROPOSAL]
-I intend to run this SQL: SELECT * FROM daily_sales WHERE region = 'Pune'
-Approve? (y/n/f):
-```
-- **y** = Execute
-- **n** = Cancel
-- **f** = Modify and resubmit
-
-### 4. **Get Executive Reports**
-
-Receive formatted reports with:
-- **Markdown tables** for data comparison
-- **INR currency formatting** (₹25,000.00)
-- **Market insights** from web search
-- **Trend analysis** and recommendations
+What Happens Behind the Scenes: Decomposition into SQL and search tasks, parallel execution, data synthesis, and professional report generation with INR formatting.
 
 ---
 
@@ -208,135 +164,59 @@ Receive formatted reports with:
 
 ```
 AI-Agent-Orchestrator/
-├── app.py                      # Streamlit dashboard UI
-├── master_agent.py             # Core orchestrator & agent logic
-├── sql_bridge.py               # SQL query execution & error handling
-├── create_database.py          # Database initialization script
-├── test_search.py              # Search integration tests
+├── docker-compose.yml          # Multi-container orchestration
+├── Dockerfile                  # Python 3.12-slim image
+├── master_agent.py             # Core orchestrator & reasoning
+├── app.py                      # Streamlit dashboard
+├── sql_bridge.py               # SQL execution & HITL gate
+├── create_database.py          # DB initialization
 ├── requirements.txt            # Python dependencies
-├── sales.db                    # SQLite database (generated)
-├── .gitignore                  # Git ignore rules
+├── sales.db                    # SQLite database
 └── README.md                   # This file
 ```
 
-### File Descriptions
-
-| File | Purpose |
-|------|---------|
-| `app.py` | Streamlit frontend with UI components, status indicators, and data exploration |
-| `master_agent.py` | Main orchestrator—decomposes queries, manages SQL/search agents, synthesizes reports |
-| `sql_bridge.py` | Handles SQL query execution, error correction, and HITL verification |
-| `create_database.py` | Populates SQLite with sample sales data (regions, products, dates, revenue) |
-| `test_search.py` | Unit tests for DuckDuckGo search integration |
-
 ---
 
-## 📸 Dashboard Preview
+## 🛣️ Roadmap & Evolution
 
-### Example Query:
-> _"What is the revenue for Classic Burgers in Pune-Hinjewadi compared to the national average?"_
+### ✅ Completed
+- [x] SQL + Search integration
+- [x] Streamlit dashboard
+- [x] Human-in-the-loop verification
+- [x] Docker containerization
 
-### Generated Report:
+### 🚧 In Progress
+- [ ] LlamaIndex RAG for internal PDFs
+- [ ] AWS CloudWatch monitoring
+- [ ] Advanced visualization
 
-| Metric | Value |
-|--------|-------|
-| **Internal Sales (Pune)** | **₹45,200.00** |
-| **Market Avg Price** | **₹185.00** |
-| **Trend Analysis** | **Outperforming by 15%** ✅ |
-| **Recommendation** | Scale inventory for summer season |
-
----
-
-## 🚀 Advanced Features
-
-### Self-Healing SQL
-
-If a query fails, the agent automatically attempts fixes:
-
-```python
-# Example
-Initial Query: SELECT * FROM sales WHERE date = '2024-01-01'  # ❌ Column doesn't exist
-Agent Fix:    SELECT * FROM daily_sales WHERE sale_date = '2024-01-01'  # ✅
-```
-
-### Task Decomposition
-
-Complex questions are split into parallel tasks:
-
-```
-USER: "Compare regional sales trends with weather patterns"
-
-DECOMPOSITION:
-├── SQL Task: "Get Q1 sales by region"
-└── Search Task: "Q1 2024 weather patterns by region"
-
-EXECUTION: Parallel execution → Merged synthesis → Report
-```
-
-### HITL Security
-
-Every SQL operation requires human approval before execution, preventing:
-- Unintended data deletions
-- Sensitive information exposure
-- Database corruption
-
----
-
-## 📅 Roadmap & Evolution
-
-- [x] **Phase 1**: SQL & Search Integration ✅
-- [x] **Phase 2**: Streamlit UI & HITL Security ✅
-- [ ] **Phase 3**: LlamaIndex RAG for internal PDF policy analysis
-- [ ] **Phase 4**: Migration to AWS CloudWatch for agent monitoring
-- [ ] **Phase 5**: Multi-LLM support (GPT-4, Claude, Gemini)
-- [ ] **Phase 6**: Advanced visualization with Plotly/Dash
+### 🔮 Future
+- [ ] Multi-LLM support (GPT-4, Claude)
+- [ ] Graph database integration
+- [ ] Mobile app companion
 
 ---
 
 ## 🤝 Contributing
 
-We welcome contributions! Whether you want to:
-- Add new tools or agents
-- Optimize prompts and decomposition logic
-- Improve the UI
-- Fix bugs or enhance performance
-
-Please feel free to:
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/awesome-feature`)
-3. Commit your changes (`git commit -m 'Add awesome feature'`)
-4. Push to the branch (`git push origin feature/awesome-feature`)
-5. Open a Pull Request
+Fork → Feature Branch → Commit → Push → Pull Request
 
 ---
 
 ## 📝 License
 
-This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) for details.
 
 ---
 
-## 🙋 Support & Questions
+## 🆘 Support
 
-Have questions or encountered issues? 
-
-- 📧 Open an [Issue](https://github.com/ankitkumar421/AI-Agent-Orchestrator/issues)
-- 💬 Start a [Discussion](https://github.com/ankitkumar421/AI-Agent-Orchestrator/discussions)
-- 🐛 Report a [Bug](https://github.com/ankitkumar421/AI-Agent-Orchestrator/issues/new?labels=bug)
+- 📧 [Open an Issue](https://github.com/ankitkumar421/AI-Agent-Orchestrator/issues)
+- 💬 [Start a Discussion](https://github.com/ankitkumar421/AI-Agent-Orchestrator/discussions)
+- 🐛 [Report a Bug](https://github.com/ankitkumar421/AI-Agent-Orchestrator/issues/new?labels=bug)
 
 ---
 
-## 🌟 Acknowledgments
+Made with ❤️ by [ankitkumar421](https://github.com/ankitkumar421)
 
-- **LangChain** for the powerful orchestration framework
-- **Meta** for Llama 3 model
-- **Ollama** for local LLM inference
-- **Streamlit** for the amazing dashboard framework
-- **DuckDuckGo** for privacy-respecting search API
-
----
-
-**Made with ❤️ by [ankitkumar421](https://github.com/ankitkumar421)**
-
-*Star ⭐ this repo if you found it helpful!*
+Star ⭐ this repo if you found it helpful!
